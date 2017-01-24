@@ -1,24 +1,29 @@
 <!DOCTYPE html>
 <html >
   <head>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
-    <script src="//ajax.googleapis.com/ajax/libs/angularjs/X.Y.Z/angular-route.js"></script>
-     <script src="app.js"></script>
+
     <title>Simple Cypher</title>
 
   </head>
   <body>
-    <h1>Cypher Time!</h1>
 
-     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
-    <script src="//ajax.googleapis.com/ajax/libs/angularjs/X.Y.Z/angular-route.js"></script>
+ <h1>Cypher Time!</h1>
+    <div ng-view></div>
+   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular-route.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular-resource.js"></script>
      <script src="app.js"></script>
+
+
+
     <div ng-app = "cypher">
-    <div ng-controller="myCtrl">
+    <div ng-controller = "CypherController">
 
       Enter a string: <input type="text" ng-model = "inputString">
+      <br>
+      Cyphered version:
 
-      Cyphered version:<p>{{inputString}}</p>
+      {{inputString}}
   </div>
   </div>
   </body>
