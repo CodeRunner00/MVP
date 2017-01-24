@@ -16,5 +16,12 @@ var cypherApp = angular.module('cypher', ['ngRoute']);
 // });
 
 cypherApp.controller('CypherController', function($scope) {
-  $scope.inputString = "Hello World!";
+  var addOne = function (link) {
+    return $http({
+      method: 'POST',
+      url: '/api/links',
+      data: link
+    });
+  };
+  // $scope.inputString = "Hello World!";
 });
