@@ -30,56 +30,41 @@ app.get("/", function(req, res){
   res.sendFile(path.join(__dirname+'/index.html'));
  });
 
-app.get('/api/cyphers', function(req, res, next) {
-
-    Cypher.find({})
-      .then(function (cyphers) {
-        res.json("in get ", cyphers);
-      })
-      .fail(function (error) {
-        next(error);
-      });
-
+app.get('/api/cyphers', function(req, res) {
+    console.log('in get');
+    Cypher.find({}, function (err, result) {
+      if(err) {
+        console.log(err);
+        throw err;
+      } else {
+        console.log('results ', result);
+        res.json(result);
+      }
+});
 });
 
-app.post('/api/cyphers', function (req, res, next) {
+app.post('/api/cyphers', function (req, res) {
     var uncyphered = req.body.uncyphered;
     var cyphered= req.body.cyphered;
 
-
+    var newCypher = {
+      uncyphered:uncyphered,
+      cyphered: cyphered
+    }
 
     Cypher.findOne({uncyphered: uncyphered}, function(err, result) {
       if(err) {
         console.log(err);
         throw err;
       } else {
-        console.log('results ', result);
-        res.send(result);
+
+
+        Cypher.create(newCypher);
+        res.end("Succesfully added to the server");
       }
     });
+});
 
-  //   ({uncyphered: uncyphered})
-  //     .then(function (match) {
-  //       if (match) {
-  //         res.send(match);
-  //       } else {
-  //         var newCypher = {
-  //           uncyphered: uncyphered,
-  //           cyphered: cyphered
-  //         };
-  //         return Cypher.create(newCypher);
-  //       }
-
-  //     })
-  //     .then(function (createdCypher) {
-  //       if (createdCypher) {
-  //         res.json(createdCypher);
-  //       }
-  //     })
-  //     .fail(function (error) {
-  //       next(error);
-  //     });
-   });
 
 
  var port = process.env.PORT || 5000;
