@@ -4,6 +4,8 @@ var path    = require("path");
 var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
 var Cypher = require('./cypherModel.js');
+var cors = require('cors');
+app.use(cors());
 console.log(Cypher);
 //var promises = require("express-promise");
 app.all('*', function(req, res, next) {
