@@ -1,14 +1,15 @@
 var cypherApp = angular.module('cypher', ['ngRoute']);
 
 // cypherApp.config(function($routeProvider, $httpProvider) {//configure routes
-//   .routeProvider
+
+//   routeProvider
 //   .when('/',  {
 //     tempateUrl: '/cypher.html',//input cypher page
 //     controller: CypherController
 
 //   })
 //   .otherwise({
-//     redirecTo: '/'
+//     redirectTo: '/cypher.html'
 //   });
 
 
