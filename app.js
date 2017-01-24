@@ -15,13 +15,19 @@ var cypherApp = angular.module('cypher', ['ngRoute']);
 
 // });
 
-cypherApp.controller('CypherController', function($scope) {
-  var addOne = function (link) {
+cypherApp.controller('CypherController',['$scope', '$http', function($scope, $http) {
+
+  $scope.cyphered = "cypheredV";
+  var addOne = function (cypher) {
     return $http({
       method: 'POST',
-      url: '/api/links',
-      data: link
+      url: '/',
+      data: cypher
     });
   };
-  // $scope.inputString = "Hello World!";
-});
+  // $scope.addCypher() {
+
+  //   addOne($scope.cypher);
+  // };
+
+}]);
