@@ -1,9 +1,9 @@
  var express = require("express");
  var app = express();
-
+var path    = require("path");
  app.get("/", function(req, res){
   //res.redirect('/Users/EWF/Desktop/HRR/MVP/index.html');
-  res.end('In index.html yep!');
+  res.sendFile(path.join(__dirname+'/index.html'));
  });
 
  var port = process.env.PORT || 5000;
