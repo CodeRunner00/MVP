@@ -25,6 +25,15 @@ conn.once('open', function() {
 
 console.log("connection success!");
 
+
+
+app.all('*', function(req, res, next) {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Methods', 'PUT, GET, POST, DELETE, OPTIONS');
+  res.header('Access-Control-Allow-Headers', 'Content-Type');
+  next();
+});
+
 app.get("/", function(req, res){
   //res.redirect('/Users/EWF/Desktop/HRR/MVP/index.html');
   res.sendFile(path.join(__dirname+'/index.html'));
