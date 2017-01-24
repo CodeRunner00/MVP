@@ -6,7 +6,12 @@ var bodyParser = require('body-parser');
 var Cypher = require('./cypherModel.js');
 console.log(Cypher);
 //var promises = require("express-promise");
-
+app.all('*', function(req, res, next) {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Methods', 'PUT, GET, POST, DELETE, OPTIONS');
+  res.header('Access-Control-Allow-Headers', 'Content-Type');
+  next();
+});
   app.use(bodyParser.json());
 
 var options = { server: { socketOptions: { keepAlive: 300000, connectTimeoutMS: 30000 } },
@@ -27,12 +32,7 @@ console.log("connection success!");
 
 
 
-app.all('*', function(req, res, next) {
-  res.header('Access-Control-Allow-Origin', '*');
-  res.header('Access-Control-Allow-Methods', 'PUT, GET, POST, DELETE, OPTIONS');
-  res.header('Access-Control-Allow-Headers', 'Content-Type');
-  next();
-});
+
 
 app.get("/", function(req, res){
   //res.redirect('/Users/EWF/Desktop/HRR/MVP/index.html');
