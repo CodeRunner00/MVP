@@ -16,13 +16,16 @@
 
 
 
+
     <div ng-app = "cypher">
     <div ng-controller = "CypherController">
+     <form name = "submitCypher" ng-submit = "addString()">
+      Enter a string: <input type="text" ng-model = "inputString" placeholder="String to Simple Cypher" required/>
 
-      Enter a string: <input type="text" ng-model = "inputString">
-      <br>
+  <button type = "submit" value="Cypher">Cypher</button>
+  </form>
       Cyphered version:
-
+      <br>
       {{inputString}}
   </div>
   </div>
