@@ -20,13 +20,13 @@
     <div ng-app = "cypher">
     <div ng-controller = "CypherController">
      <form name = "submitCypher" ng-submit = "addString()">
-      Enter a string: <input type="text" ng-model = "inputString" placeholder="String to Simple Cypher" required/>
+      Enter a string: <input type="text" ng-model = "uncyphered" placeholder="String to Simple Cypher" required/>
 
   <button type = "submit" value="Cypher">Cypher</button>
   </form>
       Cyphered version:
       <br>
-      {{inputString}}
+      {{cyphered}}
   </div>
   </div>
   </body>
