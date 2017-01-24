@@ -2,7 +2,8 @@
  var app = express();
 
  app.get("/", function(req, res){
-  res.end('In index.html!');
+  //res.redirect('/Users/EWF/Desktop/HRR/MVP/index.html');
+  res.end('In index.html yep!');
  });
 
  var port = process.env.PORT || 5000;
