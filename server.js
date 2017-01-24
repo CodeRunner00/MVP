@@ -8,12 +8,12 @@ var cors = require('cors');
 app.use(cors());
 console.log(Cypher);
 //var promises = require("express-promise");
-app.all('*', function(req, res, next) {
-  res.header('Access-Control-Allow-Origin', '*');
-  res.header('Access-Control-Allow-Methods', 'PUT, GET, POST, DELETE, OPTIONS');
-  res.header('Access-Control-Allow-Headers', 'Content-Type');
-  next();
-});
+// app.all('*', function(req, res, next) {
+//   res.header('Access-Control-Allow-Origin', '*');
+//   res.header('Access-Control-Allow-Methods', 'PUT, GET, POST, DELETE, OPTIONS');
+//   res.header('Access-Control-Allow-Headers', 'Content-Type');
+//   next();
+// });
   app.use(bodyParser.json());
 
 var options = { server: { socketOptions: { keepAlive: 300000, connectTimeoutMS: 30000 } },
@@ -21,7 +21,7 @@ var options = { server: { socketOptions: { keepAlive: 300000, connectTimeoutMS: 
 
 
 app.use(express.static(__dirname));
-
+//mongodb://EWF:EWF123@ds127439.mlab.com:27439/hrr21-mvpdatabase
 mongoose.connect('mongodb://EWF:EWF123@ds127439.mlab.com:27439/hrr21-mvpdatabase', options);
 
 var conn = mongoose.connection;
