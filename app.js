@@ -49,14 +49,21 @@ cypherApp.controller('CypherController',['$scope', '$http', function($scope, $ht
       method: 'POST',
       url: '/api/cyphers',
       data: cypher
+    }).then(function(response) {
+
+      console.log('Success Posted in controller ', response);
+    }, function (response){
+      console.log('Error in Posted controller ', response);
     });
 
      var results = $http({
       method: 'GET',
       url: '/api/cyphers'
-    }).then(function(result){
-      console.log('result ', result);
-      $scope.cyphers = result.data;
+    }).then(function(response) {
+
+      console.log('Success Get in controller ', response);
+    }, function(response){
+      console.log('Error in Get controller ', response);
     });
      console.log(results);
 
