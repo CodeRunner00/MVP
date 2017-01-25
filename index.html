@@ -7,7 +7,8 @@
   </head>
   <body>
 
- <h1>Cypher Time!</h1>
+ <h1>Simple Cypher Time!</h1>
+ <h2>The simple and effective cypher teaching tool</h2>
     <div ng-view></div>
    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular-route.js"></script>
@@ -25,9 +26,11 @@
   <button type = "submit" value="Cypher">Cypher</button>
   </form>
       Cyphered version:
-      <br>
+
       {{cyphered}}
+      <div></div>
       <div>
+      Previous 5 Cyphers Below<br>
       {{cyphers}}
       </div>
   </div>
