@@ -2,7 +2,7 @@ var cypherApp = angular.module('cypher', ['ngRoute']);
 
 // cypherApp.config(function($routeProvider, $httpProvider) {//configure routes
 
-//   routeProvider
+//   $routeProvider
 //   .when('/',  {
 //     tempateUrl: '/cypher.html',//input cypher page
 //     controller: CypherController
@@ -15,29 +15,38 @@ var cypherApp = angular.module('cypher', ['ngRoute']);
 
 // });
 
-cypherApp.controller('CypherController',['$scope', '$http', function($scope, $http) {
+
+.factory('cypherStr', function cypherStr() {
+
+  var cypher(str) {
+  var result = "";
+  var alphabet = "abcdefghijklmnopqrstuvwxyz";
+  for(var i  =0 ; i < str.length; i++) {
+
+    if(str[i] === 'x') {
+      result = result +'a';
+    } else if (str[i] === 'y') {
+      result = result +'b';
+    } else if(str[i] === 'z') {
+      result = result + 'c';
+    } else {
+      result = result + alphabet[alphabet.indexOf(str[i])+3];
+    }
+
+  }
+
+  return result;
+  }
+  return {
+    cypher: cypher
+  }
+});
+
+cypherApp.controller('CypherController',['cypherStr','$scope', '$http', function(cypherStr, $scope, $http) {
 
   var cypher = {};
 
-  function cypherStr(str) {
-    var result = "";
-    var alphabet = "abcdefghijklmnopqrstuvwxyz";
-    for(var i  =0 ; i < str.length; i++) {
 
-      if(str[i] === 'x') {
-        result = result +'a';
-      } else if (str[i] === 'y') {
-        result = result +'b';
-      } else if(str[i] === 'z') {
-        result = result + 'c';
-      } else {
-        result = result + alphabet[alphabet.indexOf(str[i])+3];
-      }
-
-    }
-
-    return result;
-  }
 
   $scope.cyphered = "";
   $scope.addString = function () {
