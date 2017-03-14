@@ -62,7 +62,7 @@ cypherApp.controller('CypherController',['cypherStr','$scope', '$http', function
     }
 
     cypher.uncyphered = $scope.uncyphered;
-    cypher.cyphered = cypherStr(cypher.uncyphered);
+    cypher.cyphered = cypherStr.cypher(cypher.uncyphered);
     $scope.cyphered = cypher.cyphered;
      $http({
       method: 'POST',
