@@ -50,17 +50,13 @@ cypherApp.controller('CypherController',['cypherStr','$scope', '$http', function
 
   $scope.cyphered = "";
   $scope.addString = function () {
-
     function allCyphers(results) {
-      console.log('all cyphers ', results[0].cyphered);
       var cyphs = "";
-
       for(var i = results.length-1 ;i > results.length-6; i--) {
         cyphs = cyphs+ "uncyphered : " + results[i].uncyphered +" AND cyphered : "+results[i].cyphered +'          |||||||            ';
       }
       $scope.cyphers = cyphs;
     }
-
     cypher.uncyphered = $scope.uncyphered;
     cypher.cyphered = cypherStr.cypher(cypher.uncyphered);
     $scope.cyphered = cypher.cyphered;
@@ -69,7 +65,6 @@ cypherApp.controller('CypherController',['cypherStr','$scope', '$http', function
       url: '/api/cyphers',
       data: cypher
     }).then(function(response) {
-
       console.log('Success Posted in controller ', response);
     }, function (response){
       console.log('Error in Posted controller ', response);
@@ -79,16 +74,10 @@ cypherApp.controller('CypherController',['cypherStr','$scope', '$http', function
       method: 'GET',
       url: '/api/cyphers'
     }).then(function(response) {
-
       console.log('Success Get in controller ', response);
       allCyphers(response.data);
     }, function(response){
       console.log('Error in Get controller ', response);
     });
-     console.log(results);
-
   };
-
-
-
 }]);
