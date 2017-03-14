@@ -1,12 +1,9 @@
 <!DOCTYPE html>
 <html >
   <head>
-
       <title>Simple Cypher</title>
-
   </head>
   <body>
-
   <h1>Simple Cypher Time!</h1>
   <h2>The simple and effective cypher teaching tool</h2>
   <div ng-view></div>
@@ -14,19 +11,13 @@
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular-route.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular-resource.js"></script>
   <script src="app.js"></script>
-
-
-
-
   <div ng-app = "cypher">
     <div ng-controller = "CypherController">
       <form name = "submitCypher" ng-submit = "addString()">
       Enter a string: <input type="text" ng-model = "uncyphered" placeholder="String to Simple Cypher" required/>
-
         <button type = "submit" value="Cypher">Cypher</button>
       </form>
        Cyphered version:
-
        {{cyphered}}
       <div>
         <br>
